@@ -12,13 +12,18 @@ owner's Windows PC with a local AI model: no cloud service, no account, no data 
   tree without a source, and research results wait for the owner's approval.
 
 ## FamilySearch use
-- **Read-only.** It uses the FamilySearch Tree API for person search and person lookups. It never creates,
-  edits or deletes anything on FamilySearch.
+- **Search and lookups** use the FamilySearch Tree API: person search and person reads, for people already in the
+  owner's own tree.
+- **The only thing it writes is a source citation** attached to a FamilySearch person that the owner has
+  explicitly linked by id. It does not create persons, relationships or facts, and it never edits or deletes
+  existing data.
+- **Verified before writing.** A citation is attached only when two independent sites support the same fact and
+  FamilySearch's own record for that person is consistent with the owner's tree. The owner can instead attach
+  manually after previewing the exact citation. Every write is logged locally.
 - **Signs in with FamilySearch's own OAuth page** (authorization code with PKCE). The app never sees a password;
   it keeps only the access token on the owner's PC.
-- **Single user, personal use.** It is not offered to others and does not store, aggregate or share
-  FamilySearch data beyond the owner's own local research tree.
-- Results are treated as leads: other users' tree entries are not proof, and the owner reviews them.
+- **Single user, personal use.** It is not offered to others and does not store, aggregate or share FamilySearch
+  data beyond the owner's own local research tree.
 
 ## Privacy
 Everything is stored in a local folder on the owner's PC. Web searches send only the search words to the search
